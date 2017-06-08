@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MisContactos</string>
+    <string name="nombre">Julio Arrieta</string>
+    <string name="telefono">46789914</string>
+    <string name="email">jaservice@vera.com.uy</string>
+    <string name="pnombre">nombre</string>
+    <string name="ptelefono">telefono</string>
+    <string name="pemail">email</string>
+    <string name="tv_likes">0 Likes</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
