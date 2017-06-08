@@ -10,5 +10,5 @@
     <dimen name="elevacion_actionbar">4dp</dimen>
     <dimen name="corner_radius_cardview">4dp</dimen>
     <dimen name="nombre_cardview">20sp</dimen>
-
+    <dimen name="height_cardview_grid">170dp</dimen>
 </resources>
