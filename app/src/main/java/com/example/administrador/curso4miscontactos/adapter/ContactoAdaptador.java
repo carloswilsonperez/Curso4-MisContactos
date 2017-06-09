@@ -42,7 +42,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
     @Override
     public ContactoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //En esta linea se inidica que layout va representar los datos del RecyclerView
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_contacto, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_grid_contacto, parent, false);
         return new ContactoViewHolder(v);
     }
 
@@ -52,8 +52,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
     public void onBindViewHolder(final ContactoViewHolder contactoViewHolder, int position) {
         final Contacto contacto = contactos.get(position); //Obtiene todos los datos de un contacto
         contactoViewHolder.imgFoto.setImageResource(contacto.getFoto());
-        contactoViewHolder.tvNombreCv.setText(contacto.getNombre());
-        contactoViewHolder.tvTelefonoCv.setText(contacto.getTelefono());
+
         contactoViewHolder.tvLikes.setText(String.valueOf(contacto.getLikes()) + " Likes");
 
         // Hace que las imagenes de la lista sean clickeables
@@ -62,13 +61,11 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
             public void onClick(View v) {
                 Toast.makeText(activity, contacto.getNombre(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(activity, DetalleContacto.class);
-                intent.putExtra("nombre", contacto.getNombre());
-                intent.putExtra("telefono", contacto.getTelefono());
                 intent.putExtra("email", contacto.getEmail());
                 activity.startActivity(intent);
             }
         });
-
+/*
         // Boton likes
         contactoViewHolder.btnLikes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +77,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
                 contactoViewHolder.tvLikes.setText(constructorContactos.obtenerLikesContacto(contacto) + " Likes"); ; // Obtengo el número total de likes que tiene el contacto y lo seteo en tvLikes para mostrarlo
             }
         });
+       */
     }
 
     //Método que devuelve la cantidad de elementos que contiene mi lista de contactos
@@ -93,9 +91,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
     public static class ContactoViewHolder extends RecyclerView.ViewHolder {
         // Aquí hay que declarar todos los view que tengo definidos en el cardView contactos
         private ImageView imgFoto;
-        private TextView tvNombreCv;
-        private TextView tvTelefonoCv;
-        private ImageButton btnLikes;
+        private ImageView imgBone;
         private TextView tvLikes;
 
         // En el contructor hay que asociar cada objeto declarado con su respectivo view
@@ -103,10 +99,10 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
             super(itemView);
             // Nota hay que hacer uso del objeto "itemView"recibido para hacer el casting y llegar al view
             imgFoto         = (ImageView) itemView.findViewById(R.id.imgFoto);
-            tvNombreCv      = (TextView) itemView.findViewById(R.id.tvNombreCv);
-            tvTelefonoCv    = (TextView) itemView.findViewById(R.id.tvTelefonoCv);
+            //tvNombreCv      = (TextView) itemView.findViewById(R.id.tvNombreCv);
+            //tvTelefonoCv    = (TextView) itemView.findViewById(R.id.tvTelefonoCv);
             tvLikes         = (TextView) itemView.findViewById(R.id.tvLikes);
-            btnLikes        = (ImageButton) itemView.findViewById(R.id.btnLikes);
+            //btnLikes        = (ImageButton) itemView.findViewById(R.id.btnLikes);
         }
     }
 }

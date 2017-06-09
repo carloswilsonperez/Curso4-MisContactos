@@ -6,7 +6,7 @@
     <string name="pnombre">nombre</string>
     <string name="ptelefono">telefono</string>
     <string name="pemail">email</string>
-    <string name="tv_likes">0 Likes</string>
+    <string name="tv_likes">0</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
