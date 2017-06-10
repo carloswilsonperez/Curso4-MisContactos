@@ -6,12 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrador.curso4miscontactos.db.ConstructorContactos;
 import com.example.administrador.curso4miscontactos.pojo.Contacto;
 import com.example.administrador.curso4miscontactos.DetalleContacto;
 import com.example.administrador.curso4miscontactos.R;
@@ -51,17 +49,16 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
     @Override
     public void onBindViewHolder(final ContactoViewHolder contactoViewHolder, int position) {
         final Contacto contacto = contactos.get(position); //Obtiene todos los datos de un contacto
-        contactoViewHolder.imgFoto.setImageResource(contacto.getFoto());
-
+    //    contactoViewHolder.imgFoto.setImageResource(contacto.getFoto());
         contactoViewHolder.tvLikes.setText(String.valueOf(contacto.getLikes()) + " Likes");
 
         // Hace que las imagenes de la lista sean clickeables
         contactoViewHolder.imgFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(activity, contacto.getNombre(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(activity, DetalleContacto.class);
-                intent.putExtra("email", contacto.getEmail());
+                intent.putExtra("url", contacto.getUrlFoto());
+                intent.putExtra("like", contacto.getLikes());
                 activity.startActivity(intent);
             }
         });
@@ -101,7 +98,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
             imgFoto         = (ImageView) itemView.findViewById(R.id.imgFoto);
             //tvNombreCv      = (TextView) itemView.findViewById(R.id.tvNombreCv);
             //tvTelefonoCv    = (TextView) itemView.findViewById(R.id.tvTelefonoCv);
-            tvLikes         = (TextView) itemView.findViewById(R.id.tvLikes);
+            tvLikes         = (TextView) itemView.findViewById(R.id.tvLikesDetalle);
             //btnLikes        = (ImageButton) itemView.findViewById(R.id.btnLikes);
         }
     }

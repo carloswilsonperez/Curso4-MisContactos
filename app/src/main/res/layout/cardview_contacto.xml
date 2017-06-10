@@ -68,7 +68,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvNombreCv"
                 app:layout_constraintVertical_bias="1.0"
-                app:layout_constraintRight_toLeftOf="@+id/tvLikes"
+                app:layout_constraintRight_toLeftOf="@+id/tvLikesDetalle"
                 android:layout_marginRight="28dp" />
 
             <ImageButton
@@ -88,7 +88,7 @@
                 app:layout_constraintVertical_bias="0.444" />
 
             <TextView
-                android:id="@+id/tvLikes"
+                android:id="@+id/tvLikesDetalle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"

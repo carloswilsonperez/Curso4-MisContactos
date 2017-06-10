@@ -10,13 +10,15 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DetalleContacto extends AppCompatActivity {
 
-    private TextView tvNombre;
-    private TextView tvTelefono;
-    private TextView tvEmail;
+    private static final String KEY_EXTRA_URL = "url";
+    private static final String KEY_EXTRA_LIKE = "like";
+    private ImageView imgFotoDetalle;
+    private TextView tvLikesDetalle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,23 +34,16 @@ public class DetalleContacto extends AppCompatActivity {
         /* Recibo los parametros que se seleccionaron
          el el MainActivity y los guardo en el Bundle parametros */
         Bundle parametros = getIntent().getExtras();
-
-        // utilizamos el archivo string.xml como una buena practica
-        String nombre = parametros.getString(getResources().getString(R.string.pnombre));
-        String telefono = parametros.getString(getResources().getString(R.string.ptelefono));
-        String email = parametros.getString(getResources().getString(R.string.pemail));
+        String url = parametros.getString(KEY_EXTRA_URL);
+        int likes = parametros.getInt(KEY_EXTRA_LIKE);
 
         //Obtengo los TextView de la activiad principal para poder manipularlos
-        tvNombre = (TextView) findViewById(R.id.tvNombre);
-        tvTelefono = (TextView) findViewById(R.id.tvTelefono);
-        tvEmail = (TextView) findViewById(R.id.tvEmail);
+        tvLikesDetalle = (TextView) findViewById(R.id.tvLikesDetalle);
+        tvLikesDetalle.setText(String.valueOf(likes));
 
-        tvNombre.setText(nombre);
-        tvTelefono.setText(telefono);
-        tvEmail.setText(email);
     }
 
-
+/*
 
     //Este metodo lo crea automaticamente para verificar el permiso de llamadas en tiempo de ejecucion
     public void llamar(View v) {
@@ -79,7 +74,7 @@ public class DetalleContacto extends AppCompatActivity {
         emailIntent.setType("message/rfc822");// indica que tipo de aplicación debe buscar para enviar el email.
         startActivity(Intent.createChooser(emailIntent, "Email"));//el metodo createChooser nos da a elejir una apliacion de mail
     }
-
+/*
     /*
         Metodo que para iniciar el MainActivity al presionar la tecla back
      */
