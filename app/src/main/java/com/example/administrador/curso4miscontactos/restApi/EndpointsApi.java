@@ -11,6 +11,6 @@ import retrofit2.http.GET;
 
 public interface EndpointsApi {
 
-    @GET(ConstantesRestApi.URL_GET_RECENT_MEDIA_USER)
+    @GET(ConstantesRestApi.URL_GET_RECENT_MEDIA_USER)//Peticion GET a la api de instagram que va a ser usada por el metodo seguido
     Call<ContactoResponse> getRecentMedia(); //Retrofit necesita usar la clase Call
 }

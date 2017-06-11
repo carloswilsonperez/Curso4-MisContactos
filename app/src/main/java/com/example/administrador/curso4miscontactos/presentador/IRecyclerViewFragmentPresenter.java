@@ -9,4 +9,6 @@ public interface IRecyclerViewFragmentPresenter {
     public void obtenerContactosBaseDatos();
 
     public void mostrarContactosRV();
+
+    void obtenerMediosRecientes();
 }
