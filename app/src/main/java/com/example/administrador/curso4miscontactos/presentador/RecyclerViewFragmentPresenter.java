@@ -3,13 +3,13 @@ package com.example.administrador.curso4miscontactos.presentador;
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
-
 import com.example.administrador.curso4miscontactos.db.ConstructorContactos;
 import com.example.administrador.curso4miscontactos.pojo.Contacto;
 import com.example.administrador.curso4miscontactos.restApi.EndpointsApi;
 import com.example.administrador.curso4miscontactos.restApi.adapter.RestApiAdapter;
 import com.example.administrador.curso4miscontactos.restApi.model.ContactoResponse;
 import com.example.administrador.curso4miscontactos.vista_fragment.IRecyclerViewFragmentView;
+import com.google.gson.Gson;
 import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,7 +20,8 @@ import retrofit2.Response;
  */
 
 public class RecyclerViewFragmentPresenter implements IRecyclerViewFragmentPresenter {
-    
+
+    private static final String TAG = "Fallo de conexion";
     //Delcaro los objeto globales
     private IRecyclerViewFragmentView iRecyclerViewFragmentView;
     private Context context;
@@ -54,11 +55,13 @@ public class RecyclerViewFragmentPresenter implements IRecyclerViewFragmentPrese
 
     @Override
     public void obtenerMediosRecientes() {
-        RestApiAdapter restApiAdapter = new RestApiAdapter(); // Intancia restApiAdapter
+        RestApiAdapter restApiAdapter = new RestApiAdapter(); // Instancia restApiAdapter
+        //primero el adaptador construye el Gson y luego lo recibe el metodo establecerConexionRestApiInstagram
+        Gson gsonMediaRecent = restApiAdapter.construyeGsonDeserializadorMediaRecent();
 
         //Creo un objeto EndpointsApi utilizando la instancia del RestApiAdapter y el metodo establecerConexionRestApiInstagram()
         // el cual devuelve un objeto de tipo EndpointsApi ya con la url-base cargada y esperando una petición a ejecutar
-        EndpointsApi endpointsApi = restApiAdapter.establecerConexionRestApiInstagram();
+        EndpointsApi endpointsApi = restApiAdapter.establecerConexionRestApiInstagram(gsonMediaRecent);
 
         // El metodo getRecentMedia realiza la petición y lo guarda en el objeto Call de la clase Retrofit
         Call<ContactoResponse> contactoResponseCall = endpointsApi.getRecentMedia();
@@ -76,7 +79,7 @@ public class RecyclerViewFragmentPresenter implements IRecyclerViewFragmentPrese
             public void onFailure(Call<ContactoResponse> call, Throwable t) {
                 Toast.makeText(context, "¡Algo pasó en la conexión! Intenta de nuevo", Toast.LENGTH_LONG).show();//Mensaje para el usuario
                 // log para el programador
-                Log.e("Fallo la conexión", t.toString());
+                Log.e(TAG, t.toString());
             }
         });
     }

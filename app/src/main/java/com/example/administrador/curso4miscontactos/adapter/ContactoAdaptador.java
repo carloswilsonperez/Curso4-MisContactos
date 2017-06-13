@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.administrador.curso4miscontactos.pojo.Contacto;
 import com.example.administrador.curso4miscontactos.DetalleContacto;
 import com.example.administrador.curso4miscontactos.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -50,7 +51,11 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
     public void onBindViewHolder(final ContactoViewHolder contactoViewHolder, int position) {
         final Contacto contacto = contactos.get(position); //Obtiene todos los datos de un contacto
     //    contactoViewHolder.imgFoto.setImageResource(contacto.getFoto());
-        contactoViewHolder.tvLikes.setText(String.valueOf(contacto.getLikes()) + " Likes");
+        Picasso.with(activity) // Libreria para traer las fotos
+                .load(contacto.getUrlFoto()) // trae la foto del usuario
+                .placeholder(R.mipmap.muchacha1) // ruta a una foto por defecto para el caso que no se encuentre la foto
+                .into(contactoViewHolder.imgFoto); // ImagenView dode se va a mostrar la foto
+        contactoViewHolder.tvLikes.setText(String.valueOf(contacto.getLikes()));
 
         // Hace que las imagenes de la lista sean clickeables
         contactoViewHolder.imgFoto.setOnClickListener(new View.OnClickListener() {

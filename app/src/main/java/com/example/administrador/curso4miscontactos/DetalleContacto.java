@@ -23,7 +23,7 @@ public class DetalleContacto extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalle_contacto);
+        setContentView(R.layout.activity_detalle_contacto_foto);
 
         // Se activa el soporte para el ActionBar
         Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);

@@ -68,7 +68,7 @@ public class BaseDatos extends SQLiteOpenHelper{
         Cursor registros = db.rawQuery(query, null); //Obtiene todas los filas y las guarda en objeto de tipo curso registros
 
         while (registros.moveToNext()){
-
+/*
             Contacto contactoActual = new Contacto();
             contactoActual.setId(registros.getInt(0));
             contactoActual.setNombre(registros.getString(1));
@@ -89,6 +89,7 @@ public class BaseDatos extends SQLiteOpenHelper{
             }
 
             contactos.add(contactoActual);
+            */
         }
         db.close(); // Cierra la conexión a la BD
         return contactos;

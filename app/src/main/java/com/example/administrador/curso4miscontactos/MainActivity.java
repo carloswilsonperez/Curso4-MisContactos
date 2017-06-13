@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         return  fragments;
     }
 
-    // Método para poner en orvita los fragments
+    // Método para poner en órbita los fragments
     private void setUpViewPager(){
         // Se inicializa el viewPager con una instancia de la clase PageAdapter, se le pasa el manejador de fragments y
         // por último se llama a la funcion agregarFragments que devuelve el ArrayList con los fragments.
