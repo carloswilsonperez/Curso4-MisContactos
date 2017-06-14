@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 public class DetalleContacto extends AppCompatActivity {
 
     private static final String KEY_EXTRA_URL = "url";
@@ -40,6 +42,13 @@ public class DetalleContacto extends AppCompatActivity {
         //Obtengo los TextView de la activiad principal para poder manipularlos
         tvLikesDetalle = (TextView) findViewById(R.id.tvLikesDetalle);
         tvLikesDetalle.setText(String.valueOf(likes));
+
+        imgFotoDetalle = (ImageView) findViewById(R.id.imgFoto);
+        url = url.replaceAll("\"", "");
+        Picasso.with(this)
+                .load(url)
+             //   .resize(300, 300)
+                .into(imgFotoDetalle);
 
     }
 

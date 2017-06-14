@@ -3,6 +3,7 @@ package com.example.administrador.curso4miscontactos.adapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ import java.util.ArrayList;
  */
 public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.ContactoViewHolder> {
 
+    private static final String TAG = "Depurador";
     ArrayList<Contacto> contactos;
     Activity activity;
 
@@ -51,8 +53,11 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
     public void onBindViewHolder(final ContactoViewHolder contactoViewHolder, int position) {
         final Contacto contacto = contactos.get(position); //Obtiene todos los datos de un contacto
     //    contactoViewHolder.imgFoto.setImageResource(contacto.getFoto());
+        String ruta = contacto.getUrlFoto();
+        ruta = ruta.replaceAll("\"", ""); //Quito las comillas dobles que vienen con la url desde el json
+ /*       Log.i(TAG, "La ruta la url es:"+ ruta);  */
         Picasso.with(activity) // Libreria para traer las fotos
-                .load(contacto.getUrlFoto()) // trae la foto del usuario
+                .load(ruta) // trae la foto del usuario
                 .placeholder(R.mipmap.muchacha1) // ruta a una foto por defecto para el caso que no se encuentre la foto
                 .into(contactoViewHolder.imgFoto); // ImagenView dode se va a mostrar la foto
         contactoViewHolder.tvLikes.setText(String.valueOf(contacto.getLikes()));
