@@ -39,10 +39,9 @@ public class DetalleContacto extends AppCompatActivity {
         String url = parametros.getString(KEY_EXTRA_URL);
         int likes = parametros.getInt(KEY_EXTRA_LIKE);
 
-        //Obtengo los TextView de la activiad principal para poder manipularlos
+        //Obtengo los TextView de la actividad principal para poder manipularlos
         tvLikesDetalle = (TextView) findViewById(R.id.tvLikesDetalle);
         tvLikesDetalle.setText(String.valueOf(likes));
-
         imgFotoDetalle = (ImageView) findViewById(R.id.imgFoto);
         url = url.replaceAll("\"", "");
         Picasso.with(this)

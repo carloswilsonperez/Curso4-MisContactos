@@ -22,7 +22,7 @@ import java.util.ArrayList;
  * Created by administrador on 14/05/17.
  */
 
-public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragmentView {
+public class RecyclerViewFragmentView extends Fragment implements IRecyclerViewFragmentView {
 
     private ArrayList<Contacto> contactos;
     private RecyclerView rvContactos;
@@ -41,7 +41,7 @@ public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragm
         return v;
     }
 
-
+/*
     @Override
     public void generarLinearLayoutVertical() {
         // Instacia el linearLayoutManager que sirve para manejar la forma en que se ve la lista
@@ -49,7 +49,7 @@ public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragm
         llm.setOrientation(LinearLayoutManager.VERTICAL);// Determina la dirección del linearLayout
         rvContactos.setLayoutManager(llm);// Setea el RecyclerView con el objeto LinearLayoutManeger creado
     }
-
+*/
     @Override
     public void generarGridLayout() {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);

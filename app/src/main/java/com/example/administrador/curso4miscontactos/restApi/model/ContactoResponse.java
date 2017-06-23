@@ -17,6 +17,8 @@ public class ContactoResponse {
     }
 
     public void setContactos(ArrayList<Contacto> contactos) {
+
         this.contactos = contactos;
+
     }
 }

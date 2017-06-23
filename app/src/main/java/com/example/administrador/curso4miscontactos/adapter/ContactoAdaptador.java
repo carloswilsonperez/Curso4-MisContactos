@@ -23,7 +23,7 @@ import java.util.ArrayList;
  */
 
 /*
-    Esta clase hereda de la clase RecyclerView.Adater y recibe una colección de datos.
+    Esta clase hereda de la clase RecyclerView.Adapter y recibe una colección de datos.
     La Clase ContactoAdaptador va a estár manejando la lista de contactos y es la encargada de pasar los datos a la
     clase interna ContactoViewHolder
  */
@@ -33,7 +33,7 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
     ArrayList<Contacto> contactos;
     Activity activity;
 
-    //******** Constructor ********************************
+    //******************************** Constructor ********************************
     public ContactoAdaptador(ArrayList<Contacto> contactos, Activity activity){
         this.contactos = contactos;
         this.activity = activity;

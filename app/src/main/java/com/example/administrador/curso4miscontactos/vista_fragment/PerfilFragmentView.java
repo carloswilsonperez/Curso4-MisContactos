@@ -13,10 +13,10 @@ import com.example.administrador.curso4miscontactos.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PerfilFragment extends Fragment {
+public class PerfilFragmentView extends Fragment {
 
 
-    public PerfilFragment() {
+    public PerfilFragmentView() {
         // Required empty public constructor
     }
 

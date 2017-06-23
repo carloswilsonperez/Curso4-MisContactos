@@ -28,7 +28,7 @@ public class RestApiAdapter {
     //Creo un metodo porque la clase contacto debe coincidir con contactoDesearializador
     // Por cada tipo de consulta a la api hay que hacer un metodo deserializador para ese tipo de llamada
     public Gson construyeGsonDeserializadorMediaRecent(){
-        //objeto que sirve para que todo lo que se desearialize se lo asocie con el objeto Contacto
+        //objeto que sirve para que lo que se desearialize se lo asocie con el objeto Contacto
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(ContactoResponse.class, new ContactoDeserializador()); // define la asociación
         return  gsonBuilder.create();  // retorna el Gson con la asociacion creada
