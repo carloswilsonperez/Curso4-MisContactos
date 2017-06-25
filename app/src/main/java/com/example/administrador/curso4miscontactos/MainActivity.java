@@ -6,11 +6,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-
 import com.example.administrador.curso4miscontactos.adapter.PageAdapter;
 import com.example.administrador.curso4miscontactos.vista_fragment.PerfilFragment;
-import com.example.administrador.curso4miscontactos.vista_fragment.RecyclerViewFragment;
-
+import com.example.administrador.curso4miscontactos.vista_fragment.RecyclerViewFragmentView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Fragment> agregarFragments(){
         ArrayList<Fragment> fragments = new ArrayList<>();
         // Cargo los fragments en el órden que los quiero mostrar
-        fragments.add(new RecyclerViewFragment());
+        fragments.add(new RecyclerViewFragmentView());
         fragments.add(new PerfilFragment());
         return  fragments;
     }

@@ -22,9 +22,8 @@ import java.util.ArrayList;
  * Created by administrador on 14/05/17.
  */
 
-public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragmentView {
+public class RecyclerViewFragmentView extends Fragment implements IRecyclerViewFragmentView {
 
-    private ArrayList<Contacto> contactos;
     private RecyclerView rvContactos;
     public ContactoAdaptador adaptador;
     private IRecyclerViewFragmentPresenter presenter;
@@ -33,7 +32,6 @@ public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragm
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         //    Con esta línea le asignamos la clase java al layout
         View v = inflater.inflate(R.layout.fragment_recyclerview, container, false);
         rvContactos = (RecyclerView) v.findViewById(R.id.rvContactos);

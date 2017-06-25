@@ -36,6 +36,7 @@ public class DetalleContacto extends AppCompatActivity {
         /* Recibo los parametros que se seleccionaron
          el el MainActivity y los guardo en el Bundle parametros */
         Bundle parametros = getIntent().getExtras();
+
         String url = parametros.getString(KEY_EXTRA_URL);
         int likes = parametros.getInt(KEY_EXTRA_LIKE);
 

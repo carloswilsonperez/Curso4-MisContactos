@@ -42,7 +42,7 @@ public class ConstructorContactos {
     }
 
 
-    public void insertarContactos(BaseDatos db){
+    public void insertarContactos(BaseDatos db){ // Si la bd está vacia la llena con algunos datos de ejemplo
         ContentValues contentValues = new ContentValues();
         contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_NOMBRE, "Viviana García");
         contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_TELEFONO, "092011758");
